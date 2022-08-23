@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { LogInLayout } from './components/layouts/LogIn';
+import { LogInPage } from './pages/LogIn';
 import { Home } from './pages/Home';
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LogInLayout />} />
+        <Route path="/login" element={<LogInPage />} />
       </Routes>
     </>
   )
