@@ -6,7 +6,12 @@ import { DrawerComponent } from '../organisms/Drawer/Drawer';
 import Divider from '@mui/material/Divider';
 import { Sidebar } from '../layouts/Sidebar';
 import  Content  from '../layouts/Content';
-export const WithDashboard = () =>{
+
+interface dashboardProps{
+    children: React.ReactNode;
+}
+
+export const WithDashboard = (props:dashboardProps) =>{
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
@@ -26,9 +31,7 @@ export const WithDashboard = () =>{
                 <Sidebar open={open}/>
             </DrawerComponent>
             <Content>
-                <Box sx={{ flexGrow: 1, p:3 }}>
-                    <h1>Content</h1>
-                </Box>
+                {props.children}
             </Content>
         </Box>
     )
