@@ -1,11 +1,11 @@
 import { faker } from '@faker-js/faker';
-import './styles/LogInRememberMe.css';
+import './styles/LogInImage.css';
 
 export const LogInImage = () => {
 
   return (
-    <div>
+    <figure>
       <img className='img' src={faker.image.abstract()} alt="Imagen" />
-    </div>
+    </figure>
   );
 }
