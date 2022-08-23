@@ -7,11 +7,11 @@ import Divider from '@mui/material/Divider';
 import { Sidebar } from '../layouts/Sidebar';
 import  Content  from '../layouts/Content';
 
-interface dashboardProps{
+interface dashboardProps {
     children: React.ReactNode;
 }
 
-export const WithDashboard = (props:dashboardProps) =>{
+export const WithDashboard = (props: dashboardProps) =>{
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {

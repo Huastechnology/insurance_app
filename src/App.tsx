@@ -1,7 +1,15 @@
-import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import { LogInLayout } from './components/layouts/LogIn';
+import { Home } from './pages/Home';
+
 const App = () => {
   return (
-    <>React hello</>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogInLayout />} />
+      </Routes>
+    </>
   )
 }
 
