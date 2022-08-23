@@ -1,14 +1,14 @@
-import { Router } from '@reach/router';
+import { Routes, Route } from "react-router-dom";
 import { LogInLayout } from './components/layouts/LogIn';
 import { Home } from './pages/Home';
 
 const App = () => {
   return (
     <>
-      <Router>
-        <Home path="/"/>
-        <LogInLayout path="login"/>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogInLayout />} />
+      </Routes>
     </>
   )
 }

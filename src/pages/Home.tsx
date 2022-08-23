@@ -1,13 +1,10 @@
-import { Link, RouteComponentProps } from '@reach/router'
-import { List, ListItem, ListItemText } from '@mui/material';
+import { Link } from "react-router-dom";
 
-export const Home = (props: RouteComponentProps) => {
+export const Home = () => {
 
   return (
-    <List>
-      <ListItem button component={Link} to='login'>
-        <ListItemText primary='LogIn' />
-      </ListItem>
-    </List>
+    <nav>
+      <Link to="/login">LogIn</Link>
+    </nav>
   );
 }
