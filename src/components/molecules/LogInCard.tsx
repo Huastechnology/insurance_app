@@ -1,7 +1,7 @@
 import { FormEventHandler, useState } from 'react';
 import { Input } from '../atoms/Input';
 import { FormButton } from '../atoms/FormButton';
-import { FormGroup } from '@mui/material';
+import { FormGroup, Checkbox, FormControlLabel } from '@mui/material';
 import './styles/LogInCard.css';
 
 export const LogInCard = () => {
@@ -28,7 +28,8 @@ export const LogInCard = () => {
       <form onSubmit={logIn} className='LogInForm' style={{gap: 20}}>
         <Input value={email} inputName='Email' inputType='text' onChange={handleEmail} />
         <Input value={password} inputName='Password' inputType='password' onChange={handlePassword} />
-        <FormButton text='Iniciar sesión'/>
+        <FormControlLabel control={<Checkbox />} label="Remember me" />
+        <FormButton text='Log In'/>
       </form>
   </FormGroup>
   );
