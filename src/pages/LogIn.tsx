@@ -1,9 +1,10 @@
 import { LogInLayout } from '../components/layouts/LogIn';
+import { Grid } from '@mui/material';
 
 export const LogInPage = () => {
   return (
-    <div>
+    <Grid container justifyContent="center">
       <LogInLayout />
-    </div>
+    </Grid>
   );
 }
