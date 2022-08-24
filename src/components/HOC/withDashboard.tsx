@@ -8,7 +8,7 @@ import { Sidebar } from '../layouts/Sidebar';
 import  Content  from '../layouts/Content';
 
 interface dashboardProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 export const WithDashboard = (props: dashboardProps) =>{
