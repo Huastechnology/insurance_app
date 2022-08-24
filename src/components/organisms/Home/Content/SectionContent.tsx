@@ -1,19 +1,41 @@
-import { Container } from "@mui/material"
-import { Grid } from '@mui/material'
+import { Container ,Grid} from "@mui/material"
 
 interface SectionContentProps {
     children?: React.ReactNode;
+    color?: string;
+    justifyContent?:string
+    spacing?:number
+    direction?: any
+    alignItems?: string
+    marginTop?:number
 }
 
-const Section = ({children}:SectionContentProps) => {
+const Section = ({
+    children, 
+    color, 
+    justifyContent,
+    spacing,
+    direction,
+    alignItems,
+    marginTop,
+}:SectionContentProps) => {
     return (
         <Container style={{
-                paddingTop: 90,
+                marginTop: marginTop,
+                paddingTop: 0,
+                paddingBottom: 50,
                 paddingRight: 0,
                 paddingLeft: 0,
+                backgroundColor: color,
             }}
         >
-            <Grid container justifyContent="center" spacing={3}>
+            <Grid 
+                container 
+                justifyContent={justifyContent} 
+                spacing={spacing}
+                direction={direction}
+                alignItems={alignItems}
+            >
                 {children}
             </Grid>
         </Container>
