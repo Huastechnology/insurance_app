@@ -11,7 +11,7 @@ interface NavbarProps {
 
 export const Navbar = (props:NavbarProps) => {
     return (
-        <AppBar position='fixed'>
+        <AppBar style={{backgroundColor:"#282C34"}} position='fixed' open={props.open}>
             <Toolbar>
                 <IconButton
                     color="inherit"
