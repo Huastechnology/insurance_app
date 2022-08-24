@@ -1,5 +1,4 @@
-import { Container } from "@mui/material"
-import { Grid } from '@mui/material'
+import { Grid, Container } from '@mui/material'
 
 interface SectionContentProps {
     children?: React.ReactNode;
