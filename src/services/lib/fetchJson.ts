@@ -6,7 +6,7 @@ export interface RequestError extends Error {
 export default async function fetchJson(...args: Parameters<typeof fetch>){
     try{
         const[url,config] = args
-        const response = await fetch(url,config)
+        const response = await fetch('http://localhost:4000' + url,config)
         if( response.status === 204){
             return{
                 status:204,

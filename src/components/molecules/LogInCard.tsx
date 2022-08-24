@@ -4,7 +4,11 @@ import { FormButton } from '../atoms/FormButton';
 import { FormGroup, Checkbox, FormControlLabel } from '@mui/material';
 import './styles/LogInCard.css';
 
-export const LogInCard = () => {
+type ILogInForm = {
+  onSubmitForm: (data: any) =>  void
+}
+
+export const LogInCard = ({onSubmitForm}: ILogInForm) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,11 +20,15 @@ export const LogInCard = () => {
     setPassword(text);
   }
 
+  const userCredentials = {
+    email,
+    password,
+  }
+  
+
   const logIn: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log(email, password);
-    console.log('Inicio de sesión');
-    
+    onSubmitForm(userCredentials)
   }
 
   return (
