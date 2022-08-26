@@ -1,11 +1,16 @@
 import { LogInCard } from '../molecules/LogInCard';
 import { LogInRememberMe } from '../atoms/LogInRememberMe';
-import { Card, CardContent } from '@mui/material';
+import { Card, CardContent, Alert } from '@mui/material';
 import { Lock } from '@mui/icons-material';
 import { IUserLogin } from '../../@customTypes/entities/user';
 import fetchJson from '../../services/lib/fetchJson';
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 export const LogIn = () => {
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
+
   const onSubmitForm = async (data: IUserLogin | any) => {
     try {
       const response = await fetchJson('/api/login', {
@@ -14,11 +19,20 @@ export const LogIn = () => {
         body: JSON.stringify(data),
       });
       
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+      if(response.token) {
+        navigate('/');
+      }
+    } catch (error: any) {
+      console.log(error.message);
+      setErrorMessage(error.message);
     }
   }
+
+  useEffect(() => {
+    setTimeout(()=> {
+      setErrorMessage('');
+    }, 5000);
+  }, [errorMessage]);
 
   return (
     <Card className='card' variant="outlined" sx={{ maxWidth: 375 }}>
@@ -26,6 +40,8 @@ export const LogIn = () => {
         <Lock />
         <LogInCard onSubmitForm ={onSubmitForm} />
         <LogInRememberMe />
+        <Alert severity="error" style={{display: errorMessage ? 'flex' : 'none', marginTop: 10}}>
+          {errorMessage}</Alert>
       </CardContent>
     </Card>
   );

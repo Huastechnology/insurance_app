@@ -13,8 +13,22 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Logo from '../../../../assets/logo.svg'
+import { Link } from "react-router-dom";
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [
+  {
+  page: 'LogIn',
+  link: '/login'
+  },
+  {
+    page: 'Pricing',
+    link: '/'
+  },
+  {
+    page: 'Blog',
+    link: '/'
+  },
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -89,8 +103,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -117,11 +131,11 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link style={{color: 'white', textDecoration: 'none'}} to={page.link}> {page.page} </Link>
               </Button>
             ))}
           </Box>
